@@ -6,6 +6,7 @@
 return {
   "nvimtools/none-ls.nvim",
   opts = function(_, opts)
+    local null_ls = require "null-ls"
     -- opts variable is the default configuration table for the setup function call
     -- local null_ls = require "null-ls"
 
@@ -18,7 +19,8 @@ return {
     opts.sources = require("astrocore").list_insert_unique(opts.sources, {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.sqlfmt,
     })
   end,
 }
